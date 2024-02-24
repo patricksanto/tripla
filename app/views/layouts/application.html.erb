@@ -11,7 +11,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="prose mx-auto">
+  <body>
+    <% unless controller_name == 'sessions' || 'registrations' && action_name == 'new' %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
