@@ -1,0 +1,33 @@
+<% if notice %>
+  <div id="noticeAlert" class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md" role="alert">
+    <div class="flex">
+      <div class="py-1"><svg class="fill-current h-6 w-6 text-blue-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M8.66 15H9v-2H8v-.5c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5V13h1v2h-.34l-4 2z"/></svg></div>
+      <div>
+        <p class="font-bold">Informação</p>
+        <p class="text-sm"><%= notice %></p>
+      </div>
+      <div class="ml-auto">
+        <button onclick="document.getElementById('noticeAlert').style.display='none'" class="text-blue-500 close-btn">
+          &#10005;
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div id="alertAlert" class="bg-yellow-100 border-t-4 w-80 absolute bottom-8 right-8 border-yellow-500 rounded-b text-yellow-900 px-4 py-3 shadow-md" role="alert">
+    <div class="flex">
+      <div class="py-1"><svg class="fill-current h-6 w-6 text-yellow-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M8.66 15H9v-2H8v-.5c0-.83.67-1.5 1.5-1.5h1c.83 0 1.5.67 1.5 1.5V13h1v2h-.34l-4 2z"/></svg></div>
+      <div>
+        <p class="font-bold">Aviso</p>
+        <p class="text-sm"><%= alert %></p>
+      </div>
+      <div class="ml-auto">
+        <button onclick="document.getElementById('alertAlert').style.display='none'" class="text-yellow-500 close-btn">
+          &#10005;
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>

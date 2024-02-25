@@ -7,17 +7,17 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%# <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <% unless controller_name == 'sessions' || 'registrations' && action_name == 'new' %>
+    <% unless ( controller_name == 'sessions' && action_name == 'new' ) ||
+              ( controller_name == 'registrations')%>
       <%= render 'shared/navbar' %>
     <% end %>
+    <%= render "shared/flashes" %>
 
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </body>
 </html>

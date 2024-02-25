@@ -1,24 +1,13 @@
-<%= form_with(model: @trip, url: trips_path, class: "min-h-screen flex items-center justify-center bg-gray-100") do |form| %>
-  <div class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
-    <div class="mb-4">
-      <%= form.label :title, "dê um nome a sua Trip", class: "block text-blue-400 text-sm font-bold mb-2" %>
-      <%= form.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-blue-400  leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
+<div class="grid grid-cols-[5fr_2fr] gap-4 max-w-[90%] mx-auto mt-20 justify-center">
 
-    <div class="mb-4">
-      <%= form.label :destiny, "vai pra onde?", class: "block text-blue-400  text-sm font-bold mb-2" %>
-      <%= form.text_field :destiny, class: "shadow appearance-none border rounded w-full py-2 px-3 text-blue-400  leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :date, "quando", class: "block text-blue-400  text-sm font-bold mb-2" %>
-      <%= form.date_field :date, class: "shadow appearance-none border rounded w-full py-2 px-3 text-blue-400  leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :duration, "duração", class: "block text-blue-400  text-sm font-bold mb-2" %>
-      <%= form.number_field :duration, class: "shadow appearance-none border rounded w-full py-2 px-3 text-blue-400  leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="flex items-center justify-between">
-      <%= form.submit "Criar Trip", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-    </div>
+  <div class="bg-cover bg-top overflow-hidden rounded-2xl flex items-end justify-end p-4" style="background-image: url(<%= asset_path 'friends-dancing-mountain.jpg' %>)">
+    <h1 class="text-white text-2xl font-sans font-bold max-w-[15ch]">Planeje sua próxima trip com seus amigos</h1>
   </div>
-<% end %>
+
+  <%= render 'form', trip: @trip %>
+</div>
+
+<div class="grid grid-cols-[2fr_7fr] gap-4 max-w-[90%] mx-auto mt-4 justify-center">
+  <div class="bg-teal-500 rounded-2xl flex items-end justify-end p-4"></div>
+  <div class="bg-orange-300 rounded-2xl flex items-end justify-end p-4 h-40"></div>
+</div>
