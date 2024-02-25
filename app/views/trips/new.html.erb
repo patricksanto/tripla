@@ -1,0 +1,13 @@
+<div class="grid grid-cols-[5fr_2fr] gap-4 max-w-[90%] mx-auto mt-20 justify-center">
+
+  <div class="bg-cover bg-top overflow-hidden rounded-2xl flex items-end justify-end p-4" style="background-image: url(<%= asset_path 'friends-dancing-mountain.jpg' %>)">
+    <h1 class="text-white text-2xl font-sans font-bold max-w-[15ch]">Planeje sua próxima trip com seus amigos</h1>
+  </div>
+
+  <%= render 'form', trip: @trip %>
+</div>
+
+<div class="grid grid-cols-[2fr_7fr] gap-4 max-w-[90%] mx-auto mt-4 justify-center">
+  <div class="bg-teal-500 rounded-2xl flex items-end justify-end p-4"></div>
+  <div class="bg-orange-300 rounded-2xl flex items-end justify-end p-4 h-40"></div>
+</div>

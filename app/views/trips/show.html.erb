@@ -1,0 +1,24 @@
+
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Trip Details</h1>
+
+  <div class="bg-white shadow-md rounded-lg p-4">
+    <h2 class="text-lg font-semibold mb-2">Trip Name</h2>
+    <p><%= @trip.title %></p>
+
+    <h2 class="text-lg font-semibold mb-2">Destination</h2>
+    <p><%= @trip.place %></p>
+
+    <h2 class="text-lg font-semibold mb-2">Start Date</h2>
+    <p><%= @trip.date%></p>
+
+    <h2 class="text-lg font-semibold mb-2">Duração</h2>
+    <p><%= @trip.duration %></p>
+
+
+    <div class="mt-4">
+      <%= link_to "Edit", edit_trip_path(@trip), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+      <%= link_to "Back", trips_path, class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  </div>
+</div>
