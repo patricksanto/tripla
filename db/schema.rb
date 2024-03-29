@@ -10,9 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_24_193735) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_29_184519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "trip_day_id", null: false
+    t.bigint "purposed_by_id", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purposed_by_id"], name: "index_activities_on_purposed_by_id"
+    t.index ["trip_day_id"], name: "index_activities_on_trip_day_id"
+  end
+
+  create_table "trip_days", force: :cascade do |t|
+    t.date "date"
+    t.integer "day"
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_trip_days_on_trip_id"
+  end
 
   create_table "trips", force: :cascade do |t|
     t.string "title"
@@ -37,5 +58,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_24_193735) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "trip_days"
+  add_foreign_key "activities", "users", column: "purposed_by_id"
+  add_foreign_key "trip_days", "trips"
   add_foreign_key "trips", "users", column: "owned_by_id"
 end
