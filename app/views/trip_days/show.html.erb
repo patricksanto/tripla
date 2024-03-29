@@ -1,0 +1,35 @@
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Dia <%= @trip_day.day %> da trip <%= @trip_day.trip.title%></h1>
+
+  <div id="trip-days-activities" class="border rounded-xl p-4 flex gap-4">
+    <% @trip_day.activities.each do |activity|%>
+        <div class="bg-white shadow-md rounded-lg p-4">
+            <h1 class="text-2xl font-bold mb-4">Atividade</h1>
+            <div class="flex flex-col space-y-4">
+                <div>
+                    <h2 class="text-lg font-semibold">Atividade:</h2>
+                    <p class="text-gray-700"> <%= activity.name %> </p>
+                    <p class="badge"><%= activity.status %></p>
+                </div>
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold">Descrição:</h2>
+                    <p class="text-gray-700"> <%= activity.description %> </p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center gap-4">
+                <%= link_to "Ver Atividade", trip_trip_day_activity_path(@trip_day.trip, @trip_day, activity), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-4 rounded" %>
+                <% if activity.purposed_by_id == current_user.id %>
+                    <%= button_to "Deletar ideia", trip_trip_day_activity_path(@trip_day.trip, @trip_day, activity),
+                        class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-4 rounded",
+                        method: :delete,
+                        data: { turbo_confirm: "Você tem certeza?" } 
+                    %>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Add Atividade", new_trip_trip_day_activity_path(@trip_day.trip, @trip_day), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <%= link_to "Voltar", trip_path(@trip_day.trip), class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" %>
+</div>

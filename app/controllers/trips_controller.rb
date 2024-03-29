@@ -19,7 +19,6 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.owned_by = current_user
-    binding.irb
     if @trip.save
       redirect_to trip_path(@trip)
     else

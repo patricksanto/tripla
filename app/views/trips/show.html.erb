@@ -1,6 +1,5 @@
-
 <div class="container mx-auto">
-  <h1 class="text-2xl font-bold mb-4">Trip Details</h1>
+  <h1 class="text-2xl font-bold mb-4">Trip #<%= @trip.title%></h1>
 
   <div class="bg-white shadow-md rounded-lg p-4">
     <h2 class="text-lg font-semibold mb-2">Trip Name</h2>
@@ -15,6 +14,27 @@
     <h2 class="text-lg font-semibold mb-2">Duração</h2>
     <p><%= @trip.duration %></p>
 
+    <%# <div>
+      <h2 class="text-lg font-semibold mb-2">Travelers</h2>
+      <ul>
+        <% @trip.travelers.each do |traveler| %>
+          <%# <li><%= traveler.name</li>  %>
+        <%# <% end %> 
+      <%# </ul> %>
+    <%# </div> %>
+
+    <div class="trip-days">
+      <div class="flex justify-between">
+        <% @trip.trip_days.each do |day| %>
+          <%= link_to trip_trip_day_path(@trip, day) do %>
+            <div class="border p-4 rounded-xl text-center bg-slate-50">
+              <h3 class="text-lg font-semibold mb-2 text-slate-700">Dia <%= day.day %></h3>
+              <p class="text-slate-200"><%= day.date %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
     <div class="mt-4">
       <%= link_to "Edit", edit_trip_path(@trip), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
